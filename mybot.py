@@ -7,13 +7,13 @@ class MyBot(bot.Bot):
         super().__init__(turn)
     
     def minimax(self, board, depth, current_player, alpha, beta, max_depth):
-        if check_win(board, self.turn):
+        if self.check_win(board, self.turn):
             return 100 - depth
-        elif check_win(board, self.get_next_player(self.turn)):
+        elif self.check_win(board, self.get_next_player(self.turn)):
             return depth - 100
-        elif check_win(board, self.get_next_player(self.get_next_player(self.turn))):
+        elif self.check_win(board, self.get_next_player(self.get_next_player(self.turn))):
             return depth - 100
-        elif check_tie(board):
+        elif self.check_tie(board):
             return 0
         elif depth == max_depth:
             return self.evaluate_board(board, current_player)
@@ -61,7 +61,7 @@ class MyBot(bot.Bot):
                 if board[new_row][new_col] != 0 and board[new_row][new_col] != self.turn:
                     player_adjacent = board[new_row][new_col]
                     board[row][col] = player_adjacent
-                    if check_win(board, player_adjacent):
+                    if self.check_win(board, player_adjacent):
                         return True
                     board[row][col] = 0
         return False
@@ -97,7 +97,7 @@ class MyBot(bot.Bot):
             row, col = move
             board[row][col] = self.turn
 
-            if check_win(board, self.turn):
+            if self.check_win(board, self.turn):
                 winer_moves.append(move)
             elif self.block_player(board, move):
                 block_player_moves.append(move)
