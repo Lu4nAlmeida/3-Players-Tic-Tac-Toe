@@ -49,7 +49,10 @@ def game(board):
             print(f"\n{players[turn % 3 + 1]} won 3rd place!")
             game_over = True
         elif (check_tie(board) and first_place != 0):
-            print(f"\n{players[turn]} and {players[turn % 3 + 1]} tied for 2nd place!")
+            turn_2 = turn % 3 + 1  # Cycle between 1, 2, and 3
+            if turn_2 == first_place:
+                turn_2 = turn_2 % 3 + 1
+            print(f"\n{players[turn]} and {players[turn_2]} tied for 2nd place!")
             game_over = True
 
         print_board(board, last_move)
