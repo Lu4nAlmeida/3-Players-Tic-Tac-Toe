@@ -47,7 +47,35 @@ class Bot:
         if shuffle:
             rand.shuffle(available_moves)
         return available_moves
+    
+    def check_win(self, board, player):
+        size = len(board)
+        
+        # Check horizontal and vertical lines
+        for i in range(size):
+            for j in range(size - 2):
+                if all(board[i][j+k] == player for k in range(3)):  # Horizontal
+                    return True
+                if all(board[j+k][i] == player for k in range(3)):  # Vertical
+                    return True
+        
+        # Check main diagonals
+        for i in range(size - 2):
+            for j in range(size - 2):
+                if all(board[i+k][j+k] == player for k in range(3)):  # Main diagonal
+                    return True
+        
+        # Check anti-diagonals
+        for i in range(size - 2):
+            for j in range(2, size):
+                if all(board[i+k][j-k] == player for k in range(3)):  # Anti-diagonal
+                    return True
+        
+        return False
 
+    def check_tie(self, board):
+        return not np.any(board == 0)
+    
     def evaluate_board(self, board, current_player):
         eval = 0
         # Costumize your own board evaluation function...
