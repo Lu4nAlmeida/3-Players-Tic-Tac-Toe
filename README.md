@@ -36,9 +36,8 @@ Bots then use the minimax algorithm to search the game tree and stop either when
 Board Evaluation:
 
 The evaluation function combines positional and strategic evaluations:
-    -      Positional Evaluation: It assigns higher scores to central positions, moderate scores to edge positions, and lower scores to corner positions. This incentivizes       
-             occupying central and strategic positions on the board.
-    -      Strategic Evaluation: It rewards or penalizes board states where the bot or opponents have potential winning configurations or blocks. This helps the bot prioritize                   moves that either advance its winning chances or hinder the opponents' strategies.
+        -        Positional Evaluation: It assigns higher scores to central positions, moderate scores to edge positions, and lower scores to corner positions. This incentivizes                    occupying central and strategic positions on the board.
+        -        Strategic Evaluation: It rewards or penalizes board states where the bot or opponents have potential winning configurations or blocks. This helps the bot                           prioritize moves that either advance its winning chances or hinder the opponents' strategies.
 
 WIN AND TIE CONDITIONS
 Win Condition:
