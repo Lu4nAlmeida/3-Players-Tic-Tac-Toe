@@ -4,9 +4,9 @@ Implementation of a variation of tic-tac-toe which uses a 4x4 board and is playe
 GAME SETUP
 1. Board: The game is played on a 4x4 grid.
 2. Players: There are three players, represented as follows:
-      Player 1: "o"
-      Player 2: "x"
-      Player 3: "□"
+-      Player 1: "o"
+-      Player 2: "x"
+-      Player 3: "□"
 3. Bots: The game has a built-in bot class which can be instantiated to substitute a human player
 
 GAME OBJECTIVE
@@ -36,8 +36,9 @@ Bots then use the minimax algorithm to search the game tree and stop either when
 Board Evaluation:
 
 The evaluation function combines positional and strategic evaluations:
-    Positional Evaluation: It assigns higher scores to central positions, moderate scores to edge positions, and lower scores to corner positions. This incentivizes occupying          central and strategic positions on the board.
-    Strategic Evaluation: It rewards or penalizes board states where the bot or opponents have potential winning configurations or blocks. This helps the bot prioritize moves that     either advance its winning chances or hinder the opponents' strategies.
+    -      Positional Evaluation: It assigns higher scores to central positions, moderate scores to edge positions, and lower scores to corner positions. This incentivizes       
+             occupying central and strategic positions on the board.
+    -      Strategic Evaluation: It rewards or penalizes board states where the bot or opponents have potential winning configurations or blocks. This helps the bot prioritize                   moves that either advance its winning chances or hinder the opponents' strategies.
 
 WIN AND TIE CONDITIONS
 Win Condition:
